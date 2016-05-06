@@ -1,25 +1,21 @@
 #include <Arduino.h>
 #include "ILI9341_t3.h"
 
-class DrawBar {
+
+class BarGraph {
   public:
-    DrawBar(ILI9341_t3* tft, int x = 0, int y = 0, byte lenght= 90, byte high=6); //Constructor
-    ~DrawBar();//Decons
-    void DrawIt(byte val = 0);
-    void DrawBorder();
-    void StatBar();
-    int ReturnX();
-    int ReturnY();
+    BarGraph(ILI9341_t3 * tft, int x = 0, int y = 0, byte lenght = 90, byte high = 6, int minVal = 0, int maxVal = 100); //Constructor
+    void DrawIt(int val = 0);
   private:
-    uint16_t ColorConvert(uint8_t r, uint8_t g, uint8_t b);
     bool _firstRun = true;
-    byte _val,_oldVal,_lenght,_height;
-    int _x,_y;
+    byte _val, _oldVal, _lenght, _height;
+    int _x, _y, _maxVal, _minVal;
+    int _values[40];
     ILI9341_t3* _tft;
 };
 
 //Constructor
-DrawBar::DrawBar(ILI9341_t3* tft, int x, int y, byte lenght, byte high)
+BarGraph::BarGraph(ILI9341_t3 * tft, int x, int y, byte lenght, byte high, int minVal, int maxVal)
 {
   _x = x;
   _y = y;
@@ -28,71 +24,11 @@ DrawBar::DrawBar(ILI9341_t3* tft, int x, int y, byte lenght, byte high)
   _height = high;
 }
 
-//Deconstructor
-DrawBar::~DrawBar(void)
+void BarGraph::DrawIt(int val)
 {
-//Fill this later
-}
-
-//Return internal values
-int DrawBar::ReturnX() {return _x;}
-int DrawBar::ReturnY() {return _y;}
-
-
-//Draw Call
-void DrawBar::DrawIt(byte val)
-{
-  _val = map(val, 0, 100, 0, _lenght - 2); //Map the incoming value to internal value
-
-
   if (_firstRun)
   {
-    DrawBorder();
-    StatBar();
-    _oldVal = _val;
     _firstRun = false;
-
+    _tft->drawRect(_x,_y,_lenght,_height, ILI9341_WHITE);
   }
-  else
-  {
-    StatBar();
-    _oldVal = _val;
-
-  }
-
-}
-
-//Convert drawRGB24toRGB565
-uint16_t DrawBar::ColorConvert(uint8_t r, uint8_t g, uint8_t b)
-{
-  return ((r / 8) << 11) | ((g / 4) << 5) | (b / 8);
-}
-
-void DrawBar::StatBar()
-{
-  if (_oldVal == _val) {}
-
-  else if (_oldVal < _val) {
-    //Fill New
-    while (_oldVal < _val)
-    {
-      _tft->fillRect(_x + 2, _y + 1, _oldVal, _height - 2, ILI9341_BLUE);
-      _oldVal++;
-
-    }
-  }
-  else {
-    //Delete Old
-    while (_oldVal > _val)
-    {
-      _tft->fillRect(_oldVal + _x, _y + 1, 1, _height - 2, ILI9341_BLACK);
-      _oldVal--;
-    }
-  }
-}
-
-void DrawBar::DrawBorder()
-{
-  _tft->drawRect(_x, _y, _lenght, _height, ILI9341_WHITE);
-
 }

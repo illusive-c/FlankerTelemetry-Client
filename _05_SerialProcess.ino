@@ -86,9 +86,9 @@ void typeSelect(char data[NUMCHARS]) {
     strtokIndx = strtok(NULL, ",");
     byte RAM_Load = atoi(strtokIndx);
 
-debug (RAM_Load);
+    debug (RAM_Load);
     //    Draw_Ram();
-    CPU_Load_Draw(CPU_Load,CPU1_Load,CPU2_Load,CPU3_Load,CPU4_Load,RAM_Load);
+    CPU_Load_Draw(CPU_Load, CPU1_Load, CPU2_Load, CPU3_Load, CPU4_Load, RAM_Load);
   }
 
   else if (DataType == "CTM") {// CPU Temperature
@@ -158,34 +158,34 @@ debug (RAM_Load);
 
 
 
-/*
-  else if (DataType == "VOL")
-  { //Get sound information
-    bool Mute;
+  /*
+    else if (DataType == "VOL")
+    { //Get sound information
+      bool Mute;
 
-    strtokIndx = strtok(NULL, ",");
-    int Volume = atoi(strtokIndx);
-    strtokIndx = strtok(NULL, ",");
-    if (String(strtokIndx) == "True")
-    {
-      Mute = true;
+      strtokIndx = strtok(NULL, ",");
+      int Volume = atoi(strtokIndx);
+      strtokIndx = strtok(NULL, ",");
+      if (String(strtokIndx) == "True")
+      {
+        Mute = true;
+      }
+      else
+      {
+        Mute = false;
+      }
+      strtokIndx = strtok(NULL, ",");
+      int Peak = atoi(strtokIndx);
+      VolumeDraw(Mute, Volume, Peak);
     }
-    else
-    {
-      Mute = false;
-    }
-    strtokIndx = strtok(NULL, ",");
-    int Peak = atoi(strtokIndx);
-    VolumeDraw(Mute, Volume, Peak);
+
   }
 
-}
+  */
 
-*/
-
-else 
-{
-  debug("Unrecognized packet received: "+DataType);
+  else
+  {
+    debug("Unrecognized packet received: " + DataType);
   }
 }
 

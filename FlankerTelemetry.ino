@@ -2,13 +2,14 @@
 #include <ILI9341_t3.h>
 #include "Includes.h"
 #include "BarGraph.h"
+#include "StatusBar.h"
 
 ILI9341_t3 tft = ILI9341_t3(TFT_CS, TFT_DC);
 
-DrawBar CPU1LoadBar(&tft, 10, 200);
-DrawBar CPU2LoadBar(&tft, 10, 208);
-DrawBar CPU3LoadBar(&tft, 10, 216);
-DrawBar CPU4LoadBar(&tft, 10, 224);
+StatusBar CPU1LoadBar(&tft, 10, 200);
+StatusBar CPU2LoadBar(&tft, 10, 208);
+StatusBar CPU3LoadBar(&tft, 10, 216);
+StatusBar CPU4LoadBar(&tft, 10, 224);
 
 void setup() {
   Serial.begin(115200);

@@ -19,9 +19,6 @@ void CPU_Load_Draw(byte CPU_Load, byte CPU1_Load, byte CPU2_Load, byte CPU3_Load
     CPU2LoadBar.DrawIt(CPU2_Load);
     CPU3LoadBar.DrawIt(CPU3_Load);
     CPU4LoadBar.DrawIt(CPU4_Load);
-
-
-
   }
 }
 void DateDraw(String date, String day)
