@@ -1,7 +1,7 @@
 //serial
 static boolean recvInProgress = false;
-boolean newData = false;
-char receivedChars[NUMCHARS];
+boolean newData = false;//Do we have data waiting to be processed
+char receivedChars[NUMCHARS];//Buffer for incoming serial
 bool cDebug = 1; //Is debugging allowed
 
 //Connection check
@@ -21,4 +21,4 @@ int maxUpSpeed = 300;
 int maxDownSpeed = 3500;
 
 //Benchmark
-unsigned long previousMicros = 0;        // will store last time LED was updated
+unsigned long previousMicros = 0;        // store last time LED was updated

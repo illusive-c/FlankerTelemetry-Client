@@ -23,12 +23,12 @@ void DrawBackGround() {
   DrawBox(PADDING * 3 + SQR * 2 , 185, SQR, SQR / 2, "Temp");
 
   //Central Boxes
-  const byte BoxWidth = ((WIDTH-2*PADDING)-PADDING)/2;
-  const byte BoxHeight = (174-PADDING*4)/2;
-  DrawBox(PADDING,20,BoxWidth,BoxHeight,"1");
-  DrawBox(PADDING*2+BoxWidth,20,BoxWidth,BoxHeight,"2");
-  DrawBox(PADDING,20+BoxHeight+2,BoxWidth,BoxHeight,"3");
-  DrawBox(PADDING*2+BoxWidth,20+BoxHeight+2,BoxWidth,BoxHeight,"4");
+  const byte BoxWidth = ((WIDTH - 2 * PADDING) - PADDING) / 2;
+  const byte BoxHeight = (174 - PADDING * 4) / 2;
+  DrawBox(PADDING, 20, BoxWidth, BoxHeight, "1");
+  DrawBox(PADDING * 2 + BoxWidth, 20, BoxWidth, BoxHeight, "2");
+  DrawBox(PADDING, 20 + BoxHeight + 2, BoxWidth, BoxHeight, "3");
+  DrawBox(PADDING * 2 + BoxWidth, 20 + BoxHeight + 2, BoxWidth, BoxHeight, "4");
 }
 
 

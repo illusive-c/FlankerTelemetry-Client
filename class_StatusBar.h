@@ -1,6 +1,3 @@
-#include <Arduino.h>
-#include "ILI9341_t3.h"
-
 
 class StatusBar {
   public:
@@ -22,6 +19,7 @@ class StatusBar {
 //Constructor
 StatusBar::StatusBar(ILI9341_t3 * tft, int x, int y, byte lenght, byte high)
 {
+  _tft = tft;
   _x = x;
   _y = y;
   _tft = tft;

@@ -8,6 +8,8 @@
 #define PADDING 5
 #define SQR  100
 #define FONT  1
+
+//Serial
 #define NUMCHARS 64
 
 

@@ -50,21 +50,12 @@ void IP_Draw(bool stat, String ip)
 
 
 void Net_Draw(int up, int down) {
-
-  tft.fillRect(PADDING * 2 + SQR + 2, 210,30,10,ILI9341_BLACK);
-  tft.setTextSize(1);
-  tft.setCursor(PADDING * 2 + SQR + 2, 210);
-  tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
-  tft.println(SpeedConvert(down));
-
   /*
-   *  downBar.setValue(map(down, 0, maxDownSpeed, 0, 100));
-   t_Down.setText(ConvertStr(SpeedConvert(down)));
-   */
-  /*
-    upBar.setValue(map(up, 0, maxUpSpeed, 0, 100));
-    t_Up.setText(ConvertStr(SpeedConvert(up) ));
-    //debug((String)downSpeed);
+    tft.fillRect(PADDING * 2 + SQR + 2, 210,30,10,ILI9341_BLACK);
+    tft.setTextSize(1);
+    tft.setCursor(PADDING * 2 + SQR + 2, 210);
+    tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
+    tft.println(SpeedConvert(down));
   */
 }
 
