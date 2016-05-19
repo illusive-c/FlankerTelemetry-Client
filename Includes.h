@@ -12,4 +12,6 @@
 //Serial
 #define NUMCHARS 64
 
+//NET
+#define MAXDOWNLOAD 400 //3mbps
 

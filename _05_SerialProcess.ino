@@ -86,8 +86,7 @@ void typeSelect(char data[NUMCHARS]) {
     strtokIndx = strtok(NULL, ",");
     byte RAM_Load = atoi(strtokIndx);
 
-    debug (RAM_Load);
-    //    Draw_Ram();
+     //    Draw_Ram();
     CPU_Load_Draw(CPU_Load, CPU1_Load, CPU2_Load, CPU3_Load, CPU4_Load, RAM_Load);
   }
 
@@ -185,7 +184,7 @@ void typeSelect(char data[NUMCHARS]) {
 
   else
   {
-    debug("Unrecognized packet received: " + DataType);
+    //debug("Unrecognized packet received: " + DataType);
   }
 }
 

@@ -51,6 +51,7 @@ void IP_Draw(bool stat, String ip)
 
 
 void Net_Draw(int up, int down) {
+  NetGraph.DrawIt(down);
   /*
     tft.fillRect(PADDING * 2 + SQR + 2, 210,30,10,ILI9341_BLACK);
     tft.setTextSize(1);

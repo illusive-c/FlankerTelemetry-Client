@@ -1,4 +1,3 @@
-#include <QueueArray.h>
 #include <SPI.h>
 #include <ILI9341_t3.h>
 #include "Includes.h"
@@ -13,9 +12,9 @@ StatusBar CPU2LoadBar(&tft, 10, 208);
 StatusBar CPU3LoadBar(&tft, 10, 216);
 StatusBar CPU4LoadBar(&tft, 10, 224);
 
-BarGraph NetGraph(&tft, 114, 200, 93, 29, 2);
+BarGraph NetGraph(&tft, 114, 200, 93, 29, 2, MAXDOWNLOAD);
 
-CircularGauge G1(&tft, 0, 100,120, 60, 40, "FPS", 5);
+CircularGauge G1(&tft, 0, 100, 120, 60, 40, "FPS", 5);
 
 void setup() {
   Serial.begin(9600);
@@ -29,8 +28,6 @@ void setup() {
   CPU3LoadBar.DrawIt(0);
   CPU4LoadBar.DrawIt(0);
 
-  NetGraph.DrawIt(20);
-
   G1.DrawIt(0);
 }
 
@@ -40,6 +37,5 @@ void loop() {
   SerialRead();
   showNewData();
   HeartBeat();
-  //NetGraph.DrawIt(random(30));
-  debug(Benchmark(false));
+  //debug(Benchmark(false));
 }
