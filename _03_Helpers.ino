@@ -29,13 +29,24 @@ String SpeedConvert(int inc) {
 }
 
 //Benchmarking
-String Benchmark ()
+String Benchmark (bool micro)
 {
+  if (micro == true)
+  {
+    unsigned long currentMicros = micros();
+    String temp = String(currentMicros - previousMicros);
+    previousMicros = currentMicros;
+    return (temp + " micros");
+  }
+  else
+  {
+    unsigned long currentMicros = millis();
+    String temp = String(currentMicros - previousMicros);
+    previousMicros = currentMicros;
+    return (temp + " milis");
+  }
 
-  unsigned long currentMicros = micros();
-  String temp = String(currentMicros - previousMicros);
-  previousMicros = currentMicros;
-  return (temp + " ms");
+
 
 
 }

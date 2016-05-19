@@ -15,6 +15,7 @@ void CPU_Load_Draw(byte CPU_Load, byte CPU1_Load, byte CPU2_Load, byte CPU3_Load
       lastCPU = CPU_Load;
     }
 
+    G1.DrawIt(CPU_Load);
     CPU1LoadBar.DrawIt(CPU1_Load);
     CPU2LoadBar.DrawIt(CPU2_Load);
     CPU3LoadBar.DrawIt(CPU3_Load);
@@ -43,9 +44,9 @@ void HourDraw(String hour)
 void IP_Draw(bool stat, String ip)
 {
   tft.setTextSize(1);
-  tft.setCursor(PADDING * 2 + SQR + 2, 200);
+  tft.setCursor(PADDING * 2 + SQR + 20, 190);
   tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
-  tft.println(ip);
+  //tft.println(ip);
 }
 
 

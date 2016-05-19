@@ -1,4 +1,3 @@
-
 class StatusBar {
   public:
     StatusBar(ILI9341_t3 * tft, int x = 0, int y = 0, byte lenght = 90, byte high = 6); //Constructor
@@ -6,8 +5,6 @@ class StatusBar {
     void DrawIt(byte val = 0);
     void DrawBorder();
     void StatBar();
-    int ReturnX();
-    int ReturnY();
   private:
     uint16_t ColorConvert(uint8_t r, uint8_t g, uint8_t b);
     bool _firstRun = true;
@@ -32,15 +29,6 @@ StatusBar::~StatusBar(void)
 {
   //Fill this later
 }
-
-//Return internal values
-int StatusBar::ReturnX() {
-  return _x;
-}
-int StatusBar::ReturnY() {
-  return _y;
-}
-
 
 //Draw Call
 void StatusBar::DrawIt(byte val)
@@ -73,7 +61,7 @@ uint16_t StatusBar::ColorConvert(uint8_t r, uint8_t g, uint8_t b)
 
 void StatusBar::StatBar()
 {
-  if (_oldVal == _val) {}
+  if (_oldVal == _val) {return;}
 
   else if (_oldVal < _val) {
     //Fill New

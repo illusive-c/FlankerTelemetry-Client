@@ -4,6 +4,7 @@
 #include "Includes.h"
 #include "class_BarGraph.h"
 #include "class_StatusBar.h"
+#include "class_CircularGauge.h"
 
 ILI9341_t3 tft = ILI9341_t3(TFT_CS, TFT_DC);
 
@@ -12,7 +13,9 @@ StatusBar CPU2LoadBar(&tft, 10, 208);
 StatusBar CPU3LoadBar(&tft, 10, 216);
 StatusBar CPU4LoadBar(&tft, 10, 224);
 
-BarGraph NetGraph(&tft, 114, 200, 93, 30, 2);
+BarGraph NetGraph(&tft, 114, 200, 93, 29, 2);
+
+CircularGauge G1(&tft, 0, 100,120, 60, 40, "FPS", 5);
 
 void setup() {
   Serial.begin(9600);
@@ -27,13 +30,16 @@ void setup() {
   CPU4LoadBar.DrawIt(0);
 
   NetGraph.DrawIt(20);
+
+  G1.DrawIt(0);
 }
 
 
 void loop() {
+  //debug(random(100));
   SerialRead();
   showNewData();
   HeartBeat();
-  NetGraph.DrawIt(random(30));
-  //debug(Benchmark());
+  //NetGraph.DrawIt(random(30));
+  debug(Benchmark(false));
 }

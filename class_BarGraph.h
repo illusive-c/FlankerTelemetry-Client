@@ -43,13 +43,11 @@ void BarGraph::DrawIt(int val)
   _queue.enqueue(val);
   for (byte i = 0; i < _queue.count(); i++)
   {
-    Serial.print (_queue.pick(i));
-    Serial.print (",");
-  }
-  Serial.print("\r\n");
 
-  _tft->fillRect(_x + 1, _y + 1, _lenght - 2, _height - 2, ILI9341_BLACK);//Delete
-  
+  }
+
+  _tft->fillRect(_x + 1, _y + 1, _lenght - 3, _height - 3, ILI9341_BLACK);//Delete
+
   if (val < 26) {
     DrawL(_x + 2, val);
   }
