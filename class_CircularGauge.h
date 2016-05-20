@@ -1,5 +1,23 @@
-//Modified version of 
-//https://learn.adafruit.com/2-8-tft-touchscreen/graphics-library
+/*Modified version of https://learn.adafruit.com/2-8-tft-touchscreen/graphics-library
+ * Turned it into an object and did some optimization.
+ * -CircularGauge(ILI9341_t3* tft, int vmin, int vmax, int x, int y, int r, String units, byte scheme)
+ *  tft - Pointer to the tft object we want to draw on. Don't forget to put the "&" sign
+ *  vmin,vmax - Minimum and maximum values that'll be accepted
+ *  x,y,r - Where to draw the circle and the radius of the circle.
+ *  units - What is the unit that'll be displayed below the value. i.e. "mhz","fps" etc. Should be 3 letter.
+ *  scheme- Coloring of the gauge. 
+ *  
+ * -Clear()     paint the area where the gauge will be drawn to black. 
+ * -DrawIt()    draw call check for a changed value. If there is no change, no redraw. 
+ * -Draw()      Internal draw function.
+ * -rainbow()   16 bit color converter.
+ * 
+ * TODO: Tried to implement smooth transitioning for the gauge. Drawing takes too much time to be practical.
+ *           alternate method required
+ *           
+ *  20/05/2016
+ *  Flanker
+*/
 
 #include <Arduino.h>
 #include "ILI9341_t3.h"

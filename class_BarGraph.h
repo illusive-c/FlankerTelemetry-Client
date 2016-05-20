@@ -1,3 +1,10 @@
+/*
+ * Plots the download speed on TFT.
+ * Requires class_CircularBuffer to store variables. With 2px wide bars and 1 gap between it fits 28 bars.
+ * 
+ * TODO:Need a faster way to redraw the bars. There is some flickering.
+ */
+
 #include "class_CircularBuffer.h"
 
 Que _queue(28);
@@ -13,9 +20,7 @@ class BarGraph
     byte _currentIndex;
     ILI9341_t3* _tft;
     void DrawL(int x, int var);
-
   public:
-
     BarGraph(ILI9341_t3 * tft, int x = 0, int y = 0, byte lenght = 90, byte high = 30, byte barWidth = 2, int maxspeed = 1); //Constructor
     void DrawIt(int val = 0);
 };

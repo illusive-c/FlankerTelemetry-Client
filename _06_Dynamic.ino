@@ -1,3 +1,10 @@
+/*
+ * These are functions to that manage the displaying the data on the TFT screen.
+ * 
+ * 20/05/2016
+ * Flanker
+ */
+
 //Buffer
 String lastCPU;
 
@@ -22,6 +29,8 @@ void CPU_Load_Draw(byte CPU_Load, byte CPU1_Load, byte CPU2_Load, byte CPU3_Load
     CPU4LoadBar.DrawIt(CPU4_Load);
   }
 }
+
+//Draw date in the top left of the screen
 void DateDraw(String date, String day)
 {
   String  temp = date + " " + day;
@@ -31,6 +40,7 @@ void DateDraw(String date, String day)
   tft.println(date + " " + day);
 }
 
+//Draw hour and minute on the top right corner
 void HourDraw(String hour)
 {
   tft.setTextSize(1);
@@ -50,6 +60,7 @@ void IP_Draw(bool stat, String ip)
 }
 
 
+//Draw upload and download speed
 void Net_Draw(int up, int down) {
   NetGraph.DrawIt(down);
   /*

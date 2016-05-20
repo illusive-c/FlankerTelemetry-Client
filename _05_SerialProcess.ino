@@ -1,3 +1,21 @@
+/*
+ * Serial operations happen here. Reads incoming lines (terminated by "\0")
+ * Depending on the tag string is routed to different functions.
+ * 
+ * Note: Maximum lenght of incoming string is 64 bytes
+ * 
+ * TODO: 
+ *       -Needs some tidying up. While performance is pretty good, style and readability 
+ *           could be better. 
+ * 
+ *       -Maybe implement a parity check? Current sanity checks are quite effective 
+ *           but there may be need for a more robust system down the line
+ *           
+ *           
+ * 20/05/2016
+ * Flanker
+ */
+
 void SerialRead() {
 
   static byte ndx = 0;
@@ -48,7 +66,7 @@ void typeSelect(char data[NUMCHARS]) {
   strtokIndx = strtok(data, ",");     // get the first part - the string
   DataType = String(strtokIndx);
   //debug("Type: " + DataType)  ;
-  lastStatus = millis();
+  lastStatus = millis();//Heathbeat functions variable. Marks when the last packet was received. 
 
 
   if (DataType == "CON") {

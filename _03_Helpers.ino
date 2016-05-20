@@ -1,4 +1,10 @@
-
+/*
+ * Helper functions 
+ * 
+ * 20/05/2016
+ * Flanker
+ */
+ 
 //debug
 void debug(String message) {
   /*tft.setCursor(10, 100);
@@ -29,6 +35,9 @@ String SpeedConvert(int inc) {
 }
 
 //Benchmarking
+//Acceps a bool flag. 
+//If true switches to microseconds
+//Else it's milliseconds
 String Benchmark (bool micro)
 {
   if (micro == true)

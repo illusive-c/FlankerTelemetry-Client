@@ -1,4 +1,12 @@
-void DrawBox(int x, int y, int h = SQR, int w = SQR / 2, String text = "" ) {
+/*
+ * Draw static background elements. 
+ * 
+ * 20/05/2016
+ * Flanker
+ */
+
+void DrawBox(int x, int y, int h = SQR, int w = SQR / 2, String text = "" )
+{
   //tft.drawRect(x, y, h, w, ILI9341_WHITE);
   tft.drawRoundRect(x, y, h, w, 2, ILI9341_WHITE);
   tft.setCursor(x + 6, y + 5);
@@ -6,7 +14,8 @@ void DrawBox(int x, int y, int h = SQR, int w = SQR / 2, String text = "" ) {
   tft.println(text);
 }
 
-void DrawBackGround() {
+void DrawBackGround() 
+{
 
   //White Border
   tft.fillRect(0, 0, WIDTH, HEIGHT, ILI9341_WHITE);
@@ -30,5 +39,3 @@ void DrawBackGround() {
   DrawBox(PADDING, 20 + BoxHeight + 2, BoxWidth, BoxHeight, "3");
   DrawBox(PADDING * 2 + BoxWidth, 20 + BoxHeight + 2, BoxWidth, BoxHeight, "4");
 }
-
-

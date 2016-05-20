@@ -1,3 +1,29 @@
+/*********************************************************************************************************************************  
+   Flanker Telemetry's client side code
+   -------------------------------------------------------------------------------------------------------------------------------
+   Required Hardware:
+   
+   -Teensy Development Board https://www.pjrc.com/store/teensy32.html
+      Very powerful 32Bit development board. I used 3.2 version but I believe this code should work for 3.1 and LC variants also.
+      NOTE: Theoretically you could adapt this code to work with any arduino, but the display refresh rate is absymal with them. 
+            With teensy 3.2 and it's optimized library I can reach 60+hz refresh rates. Arduino nano struggles even with 1hz.
+            
+   -ILI9341 SPI TFT(320x240) http://goo.gl/noX1DK
+      
+   -------------------------------------------------------------------------------------------------------------------------------   
+   Required External Libraries:
+   
+   -ILI9341_t3.h - https://github.com/PaulStoffregen/ILI9341_t3/blob/master/ILI9341_t3.h
+   Specific library for Teensy boards and ILI9341 based TFT displays. Optimized to within an inch of it's life. 
+   Superb work from PaulStoffregen.
+  -------------------------------------------------------------------------------------------------------------------------------                   
+  License: BSD License
+  20/05/2016
+  Can "Flanker" Sahin
+  can at cansahin.net
+*********************************************************************************************************************************/
+
+
 #include <SPI.h>
 #include <ILI9341_t3.h>
 #include "Includes.h"

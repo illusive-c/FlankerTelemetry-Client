@@ -1,3 +1,12 @@
+/*
+ * Double buffered status bar library. Instead of deleting and redrawing each bar every call, 
+ * It calculates the difference between old and new value and adds or removes necessary pixels.
+ * Well optimized. Works quite fast.
+ * 
+ *  20/05/2016
+ *  Flanker
+ */
+
 class StatusBar {
   public:
     StatusBar(ILI9341_t3 * tft, int x = 0, int y = 0, byte lenght = 90, byte high = 6); //Constructor

@@ -1,3 +1,7 @@
+/*
+ * Globals are declared here. 
+ */
+
 //serial
 static boolean recvInProgress = false;
 boolean newData = false;//Do we have data waiting to be processed
